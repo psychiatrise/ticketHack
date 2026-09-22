@@ -1,8 +1,257 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root {
+  --green: #459E85;
 }
 
-a {
-  color: #00B7FF;
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    font-size: 12px;
+}
+.backgroundImage{
+    background: url('../images/background.jpg') center top no-repeat;
+    background-size: cover;
+}
+.backgroundColor{
+  background:#EFF2F1;
+}
+h1, h2{
+  margin:0;
+} 
+a{
+    color: inherit;
+    text-decoration: inherit;
+}
+
+nav{
+  display: flex;
+  justify-content:space-between;
+  height: 100px;
+  padding:0 38px 0 50px;
+  background:white;
+}
+h1{
+  color:var(--green);
+}
+h1 a{
+  display: block;
+  height:40px;
+  line-height:40px;
+  margin:30px 0 0 0;
+  font-size: 2.5rem;
+}
+.button{
+  display: flex;
+}
+.button a{
+  display: block;
+  width:100px;
+  height:40px;
+  margin:35px 15px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+main h2{
+  margin:70px 0 0 0;
+  text-align: center;
+  color: white;
+  font-size: 4.05rem;
+  font-weight: normal;
+}
+main p{
+  margin:30px 0 0 0;
+  text-align: center;
+  color: white;
+  font-size: 2.35rem;
+  font-weight: normal;
+}
+main .cards{
+  display:flex;
+  justify-content:space-between;
+  min-width: 800px;
+  width:56vw;
+  height: 600px;
+  margin:70px auto 0;
+}
+main .search{
+  width:40.5%;
+  min-width:500px;
+  height:100%;
+  border-radius: 10px;
+  padding:20px 40px;
+  background: white;
+}
+input{
+  display: block;
+  width:100%;
+  height:60px;
+  border:2px solid #EFF1F1;
+  border-top:1px solid #DEE0E0;
+  border-radius: 5px;
+  padding:10px;
+  background-color: #EFF1F1;
+  font-size: 1.5rem;
+}
+input:hover{
+  background: #D9DBDB;
+}
+input:focus{
+  border:2px solid #094698;
+}
+input:first-child{
+  border:2px solid #EFF1F1;
+  border-bottom:1px solid #DEE0E0;
+}
+input[type=date]{
+  margin-top:70px;
+  border: none;
+}
+#button{
+  width:100%;
+  height:60px;
+  margin:155px 0 0 0;
+  border:none;
+  border-radius: 5px;
+  background:var(--green);
+  font-size: 1.5rem;
+  color:white;
+  cursor: pointer;
+}
+main .find{
+  width:40.5%;
+  min-width:500px;
+  height:100%;
+  border-radius: 10px;
+  background: white;
+  overflow-x: auto;
+}
+main .find .img{
+  width:380px;
+  margin:120px auto 60px;
+  padding:0 0 50px 0;
+  border-bottom: 5px solid var(--green);
+  text-align: center;
+}
+main .find img{
+  width:200px;
+}
+main .find p{
+  font-size: 2rem;
+  color:black;
+}
+main .find .line{
+  display: flex;
+  justify-content:space-around;
+    align-items:center;
+  font-size: 1.5rem;
+  background: #F5EEEE;
+  margin:5%;
+  border-radius: 5px;
+  padding:2%;
+}
+main .find .line .price{
+  font-weight: bold;
+}
+main .find .line a{
+  display: block;
+  width:80px;
+  height:50px;
+  line-height:50px;
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size: 1.2rem;
+  text-align: center;
+  background:var(--green);
+}
+/*///////////////////////////////////////////////////////////////////
+////////////////////            PAGE CART           ////////////////
+///////////////////////////////////////////////////////////////////*/
+.flex{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height: 100vh;
+}
+#noCart{
+    width: 70vw;
+    border-radius: 10px;
+    padding:20px 0;
+    text-align: center;
+    background-color: white;
+}
+#noCart p{
+    margin:0;
+    line-height:50px;
+    font-size: 1.5rem;
+}
+#cart{
+    width: 70vw;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+}
+#cart h2{
+    margin:70px;
+}
+#cart .line{
+  display: flex;
+  justify-content:space-between;
+    align-items:center;
+  font-size: 1.5rem;
+  background: #F5EEEE;
+  margin:2% 4vw;
+  border-radius: 5px;
+  padding:1%;
+}
+#cart .total{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:3vh 3vw;
+    background:#00153E;
+    color:white;
+    border-radius: 0 0 10px 10px;
+}
+#cart .total p{
+    font-size: 1.5rem;
+}
+#cart .total a{
+  display: block;
+  width:120px;
+  height:50px;
+  line-height:50px;
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size: 1.2rem;
+  text-align: center;
+  background:var(--green);
+}
+#cart .line .price{
+  font-weight: bold;
+}
+#cart .line a{
+  display: block;
+  width:50px;
+  height:50px;
+  line-height:50px;
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size: 1.2rem;
+  text-align: center;
+  background:var(--green);
+}
+hr{
+  width:12vw;
+  border:2px solid black;
+}
+.thank{
+  margin:30px 0;
+  font-size: 1.5rem;
+  color:var(--green);
 }
