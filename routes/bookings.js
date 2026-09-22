@@ -5,7 +5,7 @@ const Booking = require('../models/bookings');
 router.post('/', (req, res) => {
   const newBooking = new Booking({
     trip: req.body.trip,
-    booking: req.body.booking,
+    booking: false,
   });
 
   newBooking.save()
