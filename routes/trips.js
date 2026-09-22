@@ -10,7 +10,7 @@ router.post('/', function(req,res,next){
             arrival: req.body.arrival
           })
            .then(data => {
-            console.log(data);
+            //console.log(data);
             res.json({Trips: data});
            })   
       

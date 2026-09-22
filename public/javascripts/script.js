@@ -1,16 +1,9 @@
+document.querySelector('#button').addEventListener('click', function() {
 
-const departure = document.querySelector('#departure');
-const arrival = document.querySelector('#arrival');
-const button = document.querySelector('#button');
-const result = document.querySelector('#result');
-const find = document.querySelector('.find');
+    const departure = document.querySelector('#departure').value;
+    const arrival = document.querySelector('#arrival').value;
 
-button.addEventListener('click', async () => {
-
-   
-
-    const response = await fetch('http://localhost:3000/trips', {
-
+    fetch('http://localhost:3000/trips', {
         method: 'POST',
 
         headers: {
@@ -18,44 +11,34 @@ button.addEventListener('click', async () => {
         },
 
         body: JSON.stringify({
-            departure : departure.value,
-            arrival : arrival.value,
+            departure: departure,
+            arrival: arrival
         })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data);
+
+        const result = document.querySelector('.find');
+
+        result.innerHTML = '';
+
+        data.Trips.forEach(trip => {
+            result.innerHTML += `
+                <div class="line">
+                  <span class="departure">${trip.departure}</span>
+                   > 
+                  <span class="arrival">Lyon</span>
+                  <span class="Hour">16:23</span>
+                  <span class="price">126€</span>
+                  <a href="cart.html">Book</a>
+                </div>
+            `;
+        });
+
+    })
+    .catch(error => {
+        console.log(error);
     });
-
-    const trips = await response.json();
-
-    find.innerHTML = '';
-
-    for(let i=0;i<trips.length;i++){
-        
-        find.innerHTML += `
-            <div class="line">
-
-                <span class="departure">
-                    ${trips[i].departure}
-                </span>
-
-                >
-
-                <span class="arrival">
-                    ${trips[i].arrival}
-                </span>
-
-                <span class="Hour">
-                    ${trips[i].hour}
-                </span>
-
-                <span class="price">
-                    ${trips[i].price}€
-                </span>
-
-                <a href="cart.html">Book</a>
-
-            </div>
-        `;
-    }
-
-    console.log(trips);
-    //result.textContent = data.message;
-})
+});
