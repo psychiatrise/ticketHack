@@ -2,6 +2,7 @@ document.querySelector('#button').addEventListener('click', function() {
 
     const departure = document.querySelector('#departure').value;
     const arrival = document.querySelector('#arrival').value;
+    const date = document.querySelector('#date').value;
 
     fetch('http://localhost:3000/trips', {
         method: 'POST',
@@ -10,7 +11,8 @@ document.querySelector('#button').addEventListener('click', function() {
         },
         body: JSON.stringify({
             departure: departure,
-            arrival: arrival
+            arrival: arrival,
+            date : date,
         })
     })
     .then(response => response.json())
@@ -26,14 +28,18 @@ document.querySelector('#button').addEventListener('click', function() {
             result.innerHTML += `
                 <div class="line">
                   <span class="departure">${trip.departure}</span>
-                   > 
-                  <span class="arrival">Lyon</span>
-                  <span class="Hour">16:23</span>
-                  <span class="price">126€</span>
-                  <a href="cart.html">Book</a>
+                  <span class="arrival">${trip.departure}</span>
+                  <span class="arrival">${trip.arrival}</span>
+                  <span class="heure">${trip.date}</span>
+                  <span class="heure">${trip.heure}</span>
+                  <span class="price">${trip.price}€</span>
+                  <a href="cart.html/?id=${trip._id}">Book</a>
                 </div>
             `;
         });
+        
+
+
 
     })
     .catch(error => {
