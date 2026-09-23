@@ -6,9 +6,11 @@ document.querySelector('#button').addEventListener('click', function() {
 
     fetch('http://localhost:3000/trips', {
         method: 'POST',
+
         headers: {
             'Content-Type': 'application/json'
         },
+
         body: JSON.stringify({
             departure: departure,
             arrival: arrival,

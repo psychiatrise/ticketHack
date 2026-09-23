@@ -95,12 +95,6 @@ input{
   background-color: #EFF1F1;
   font-size: 1.5rem;
 }
-input:hover{
-  background: #D9DBDB;
-}
-input:focus{
-  border:2px solid #094698;
-}
 input:first-child{
   border:2px solid #EFF1F1;
   border-bottom:1px solid #DEE0E0;
@@ -108,6 +102,13 @@ input:first-child{
 input[type=date]{
   margin-top:70px;
   border: none;
+}
+input:hover{
+  background: #D9DBDB;
+}
+input:focus{
+  outline: 2px solid #094698;
+  border:2px solid #094698;
 }
 #button{
   width:100%;
