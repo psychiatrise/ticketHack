@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
     trip: req.body.trip,
     booking: false,
   });
-
+  console.log(req.body.user)
   newBooking.save()
     .then(saved => res.json({ result: true, booking: saved }))
     .catch(error => {
