@@ -24,12 +24,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:user', (req, res) => {
-  Article.findOne({ user: req.params.user })
+  Booking.findOne({ user: req.params._id })
     .then(data => {
       if (!data) {
         return res.json({ result: false, error: 'Élément introuvable' });
       }
-      res.json({ result: true, article: data });
+      res.json({ result: true, booking: data });
     })
     .catch(() => res.json({ result: false, error: 'Erreur serveur' }));
 });
