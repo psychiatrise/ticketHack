@@ -10,6 +10,7 @@ router.post('/', function(req,res,next){
             arrival: req.body.arrival,
             date: req.body.date
           })
+          .sort('heure')
            .then(data => {
             //console.log(data);
             res.json({Trips: data});

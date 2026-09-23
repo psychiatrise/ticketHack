@@ -20,8 +20,6 @@ document.querySelector('#button').addEventListener('click', function() {
     .then(response => response.json())
     .then(data => {
 
-        console.log(data);
-
         const result = document.querySelector('.find');
 
         result.innerHTML = '';
