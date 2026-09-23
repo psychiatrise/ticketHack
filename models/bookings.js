@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = mongoose.Schema({
-  trip: { type: mongoose.Schema.Types.ObjectId, ref: 'trips' },
+  user: {type : String},
+  trip: [{ type: mongoose.Schema.Types.ObjectId, ref: 'trips' }],
   booking: { type: Boolean},
 });
 
