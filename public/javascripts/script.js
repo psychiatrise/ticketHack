@@ -30,12 +30,11 @@ document.querySelector('#button').addEventListener('click', function() {
             result.innerHTML += `
                 <div class="line">
                   <span class="departure">${trip.departure}</span>
-                  <span class="arrival">${trip.departure}</span>
                   <span class="arrival">${trip.arrival}</span>
                   <span class="heure">${trip.date}</span>
                   <span class="heure">${trip.heure}</span>
                   <span class="price">${trip.price}€</span>
-                  <a href="cart.html/?id=${trip._id}">Book</a>
+                  <a href="./cart.html?id=${trip._id}">Book</a>
                 </div>
             `;
         });
