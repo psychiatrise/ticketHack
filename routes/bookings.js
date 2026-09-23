@@ -23,6 +23,17 @@ router.get('/', (req, res) => {
     .catch(() => res.json({ result: false, error: 'Erreur serveur' }));
 });
 
+router.get('/:user', (req, res) => {
+  Article.findOne({ user: req.params.user })
+    .then(data => {
+      if (!data) {
+        return res.json({ result: false, error: 'Élément introuvable' });
+      }
+      res.json({ result: true, article: data });
+    })
+    .catch(() => res.json({ result: false, error: 'Erreur serveur' }));
+});
+
 router.put('/:_id', (req, res) => {
   Booking.updateOne(
     { _id: req.params._id },
