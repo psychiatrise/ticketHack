@@ -1,3 +1,9 @@
+fetch('../public/nav.html')
+    .then(response => response.text())
+    .then(data => {
+      document.querySelector('nav').innerHTML = data;
+    });
+
 document.querySelector('#button').addEventListener('click', function() {
 
     const departure = document.querySelector('#departure').value;
