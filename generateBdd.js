@@ -8,8 +8,8 @@ const moment = require('moment')
 const tripsFormatted = trips.map(trip => ({
     departure: trip.departure,
     arrival: trip.arrival,
-    date: moment(trip.date.$date).format("DD/MM/YY"),
-    heure:  moment(trip.date.$date).format("hh:mm"),
+    date: moment(trip.date.$date).format("YYYY-MM-DD"),
+    heure:  moment(trip.date.$date).format("HH:mm"),
     price: trip.price
 }));
 

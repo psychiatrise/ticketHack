@@ -4,7 +4,6 @@ const router = express.Router();
 const Trip = require('../models/trips');
 
 router.post('/', function(req,res,next){
-  console.log(req.body.date);
     if(req.body.departure && req.body.arrival && req.body.date){
            Trip.find({
             departure:req.body.departure,
@@ -15,7 +14,6 @@ router.post('/', function(req,res,next){
             //console.log(data);
             res.json({Trips: data});
            })   
-      
      // res.json({result: true, error: "En construction"
     }else{
       res.json({result: false, error: "missing field"})
