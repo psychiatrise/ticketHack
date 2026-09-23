@@ -52,9 +52,18 @@ document.querySelector('#button').addEventListener('click', function() {
     });
 });
 
-function addToCart(id){
-    console.log(id);
-    fetch('http://localhost:3000/bookings', {
+async function obtenirIP() {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    return data.ip;
+}
+
+async function addToCart(id) {
+    console.log("ID du trajet :", id);
+
+    const ip = await obtenirIP();
+
+    const response = await fetch('http://localhost:3000/bookings', {
         method: 'POST',
 
         headers: {
@@ -62,15 +71,14 @@ function addToCart(id){
         },
 
         body: JSON.stringify({
-            trip: id
+            trip: id,
+            user: ip
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
     });
 
+    const data = await response.json();
 
+    console.log(data);
 
-   window.location.href = "../public/cart.html";
+    window.location.href = "../public/cart.html";
 }
