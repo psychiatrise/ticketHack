@@ -5,9 +5,11 @@ const Trip = require('../models/trips');
 
 router.post('/', function(req,res,next){
     if(req.body.departure && req.body.arrival && req.body.date){
+      const departure = req.body.departure.charAt(0).toUpperCase() + req.body.departure.slice(1);
+      const arrival = req.body.arrival.charAt(0).toUpperCase() + req.body.arrival.slice(1);
            Trip.find({
-            departure:req.body.departure,
-            arrival: req.body.arrival,
+            departure:departure,
+            arrival: arrival,
             date: req.body.date
           })
           .sort('heure')

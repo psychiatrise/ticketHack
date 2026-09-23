@@ -38,7 +38,7 @@ document.querySelector('#button').addEventListener('click', function() {
                   <span class="arrival">${trip.arrival}</span>
                   <span class="heure">${trip.heure}</span>
                   <span class="price">${trip.price}€</span>
-                  <a class="add_panier" href="./cart.html?id=${trip._id}">Book</a>
+                  <a class="add_panier" href="#" onclick="addToCart('${trip._id}')">Book</a>
                 </div>
             `;
         });
@@ -51,3 +51,26 @@ document.querySelector('#button').addEventListener('click', function() {
         console.log(error);
     });
 });
+
+function addToCart(id){
+    console.log(id);
+    fetch('http://localhost:3000/bookings', {
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            trip: id
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+    });
+
+
+
+    window.location.href = "../public/cart.html";
+}
