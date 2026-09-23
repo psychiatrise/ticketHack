@@ -4,6 +4,7 @@ const Booking = require('../models/bookings');
 
 router.post('/', (req, res) => {
   const newBooking = new Booking({
+    user: req.body.trip,
     trip: req.body.trip,
     booking: false,
   });
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
 router.put('/:_id', (req, res) => {
   Booking.updateOne(
     { _id: req.params._id },
-    { trip: req.body.trip, booking: req.body.booking }
+    { user: req.body.user, trip: req.body.trip, booking: req.body.booking }
   )
     .then(result => {
       // matchedCount : a-t-on trouvé le document ?
