@@ -19,24 +19,57 @@
     <div class="flex">
         <div id="cart">
             <h2>My cart</h2>
-            <div class="line">
+            <div class="line" data-id="6ab3d06d167cc613df18aee8">
                 <span class="departure">Paris > Lyon</span>
                 <span class="Hour">16:23</span>
                 <span class="price">126€</span>
-                <a href="cart.html">X</a>
+                <a class="del" href="#">X</a>
             </div>
             <div class="line">
                 <span class="departure">Paris > Lyon</span>
                 <span class="Hour">16:23</span>
                 <span class="price">126€</span>
-                <a href="cart.html">X</a>
+                <a class="del" href="#">X</a>
             </div>
             <div class="total">
                 <p>Total : 103€</p>
-                <a href="bookings.html">Purchase</a>
+                <a class="del" href="bookings.html">Purchase</a>
             </div>
         </div>
     </div>
     <script src="./javascripts/script.js"></script>
+    <script>
+        // const Booking = () => {
+        //     fetch('http://localhost:3000/trips', {
+        //         method: 'POST',
+        //         headers: {'Content-Type': 'application/json'},
+        //         body: JSON.stringify({
+        //             departure: departure,
+        //             arrival: arrival,
+        //             date : date,
+        //         })
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {console.log('test')})
+        // }
+        // Booking();
+        ///////////////////////////////////////////////////////////////////////////
+        document.querySelector('.del').addEventListener('click', function() {
+            const line = document.querySelector('.line');
+            const id = line.dataset.id;
+
+            const API_URL = 'http://localhost:3000';
+
+            fetch(`${API_URL}/bookings/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    line.remove();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
